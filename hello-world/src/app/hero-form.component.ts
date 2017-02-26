@@ -10,13 +10,12 @@ import { Hero }      from './hero';
 })
 export class HeroFormComponent { 
   private powers = ['Really Smart', 'Super Flexible','Super Hot', 'Weather Changer'];
-  private model = new Hero(18, 'Dr IQ', this.powers[0], 'Chuck Street');
+  private model = new Hero(0, '', '');
   private submitted = false;
 
-  private onSubmit() { this.submitted = true; }
-
-  private newHero(): void {
-    console.log('new Hero');
+  private onSubmit() { 
+    this.submitted = true;
+    console.log('submitting');  
   }
 
   // TODO: Remove this when we're done
