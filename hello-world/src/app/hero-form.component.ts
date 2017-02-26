@@ -9,11 +9,15 @@ import { Hero }      from './hero';
   styleUrls: [ './hero-form.component.css' ]
 })
 export class HeroFormComponent { 
-  powers = ['Really Smart', 'Super Flexible','Super Hot', 'Weather Changer'];
-  model = new Hero(18, 'Dr IQ', this.powers[0], 'Chuck Street');
-  submitted = false;
+  private powers = ['Really Smart', 'Super Flexible','Super Hot', 'Weather Changer'];
+  private model = new Hero(18, 'Dr IQ', this.powers[0], 'Chuck Street');
+  private submitted = false;
 
-  onSubmit() { this.submitted = true; }
+  private onSubmit() { this.submitted = true; }
+
+  private newHero(): void {
+    console.log('new Hero');
+  }
 
   // TODO: Remove this when we're done
   get diagnostic() { return JSON.stringify(this.model); }
