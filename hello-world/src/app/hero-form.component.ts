@@ -9,9 +9,8 @@ import { Hero }      from './hero';
   styleUrls: [ './hero-form.component.css' ]
 })
 export class HeroFormComponent { 
-  powers = ['Really Smart', 'Super Flexible',
-            'Super Hot', 'Weather Changer'];
-  model = new Hero(18, 'Dr IQ', this.powers[0], 'Chuck Overstreet');
+  powers = ['Really Smart', 'Super Flexible','Super Hot', 'Weather Changer'];
+  model = new Hero(18, 'Dr IQ', this.powers[0], 'Chuck Street');
   submitted = false;
 
   onSubmit() { this.submitted = true; }
