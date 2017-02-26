@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   private values = '';
 
-  private onKey(event: any) :void {
-    this.values += event.target.value;
+  private onEnter(value: string) :void {
+    this.values += value;
   }
 }
