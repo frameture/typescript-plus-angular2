@@ -41,3 +41,36 @@ function parkCorrectly(vehicle: Bike | Car): void {
     vehicle.parkOnKickstand();
   }
 }
+
+class A {
+  kind: 'a';
+  aSpecific(): void { };
+}
+
+class B {
+  kind: 'b';
+  bSpecific(): void { };
+}
+
+class C {
+  kind: 'c';
+  cSpecific(): void { };
+}
+
+type ALPHABET = A | B | C;
+
+function assertNever(x: any): never {
+  throw new Error(`Unexpected object: ${ x }`);
+}
+
+function specific(obj: ALPHABET): void {
+  switch (obj.kind) {
+    case 'a': obj.aSpecific(); break;
+    case 'b': obj.bSpecific(); break;
+    default: assertNever(obj);
+  }
+}
+
+console.log(specific(new A()));
+console.log(specific(new B()));
+console.log(specific(new C()), 'should be error');
