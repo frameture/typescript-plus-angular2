@@ -2,7 +2,6 @@ function anyType<T>(arg: T): T {
   return arg;
 }
 
-
 const stringType = anyType<string>('string');
 const implicitStringType = anyType('string');
 console.log(anyType(1), anyType(true), stringType, implicitStringType);
@@ -76,3 +75,13 @@ function copyCollectionToLengthyOne<T>
 
 copyCollectionToLengthyOne(numCollection, lengthyColl);
 console.log(lengthyColl);
+
+
+class Num {
+  number: number;
+}
+
+type LengthyNum = Num & Lengthwise;
+let aliased: LengthyNum = { number: 1, length: 1 };
+
+console.log(aliased instanceof Num);
