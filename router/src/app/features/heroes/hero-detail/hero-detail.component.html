@@ -1,0 +1,10 @@
+<div class="details" *ngIf="hero">
+  <h3>Hero Details</h3>
+  <label for="name">Name
+    <input type="text" name="name" [(ngModel)]="hero.name">
+  </label>
+  <label for="power">Power
+    <input type="text" name="power" [(ngModel)]="hero.power">
+  </label>
+  <button (click)="onBack()" type="button">Back</button>
+</div>

@@ -1,0 +1,5 @@
+<div class="container">
+  <button type="button" *ngFor="let hero of heroes" class="btn btn-info" (click)="select(hero)">{{hero.name}}</button>
+</div>
+<div>
+  <app-hero-detail *ngIf="selectedHero" [hero]="selectedHero"></app-hero-detail>

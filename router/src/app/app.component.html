@@ -1,0 +1,9 @@
+<h2 class="block-center">{{title}}</h2>
+<nav>
+  <a class="btn btn-info" routerLink="/heroes" routerLinkActive="active">Heroes</a>
+  <a class="btn btn-info" routerLink="/crisis-center" routerLinkActive="active">Crisis Center</a>
+  <a class="btn btn-danger" routerLink="/is-not-a-page">404?</a>
+  <a class="btn btn-info" [routerLink]="[ { outlets: { popup: ['compose'] } } ]">Contact</a>
+</nav>
+<router-outlet></router-outlet>
+<router-outlet name="popup"></router-outlet>

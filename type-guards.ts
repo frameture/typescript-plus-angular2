@@ -60,17 +60,23 @@ class C {
 type ALPHABET = A | B | C;
 
 function assertNever(x: any): never {
-  throw new Error(`Unexpected object: ${ x }`);
+  throw new Error("Unexpected object" + x);
 }
 
 function specific(obj: ALPHABET): void {
   switch (obj.kind) {
     case 'a': obj.aSpecific(); break;
     case 'b': obj.bSpecific(); break;
-    default: assertNever(obj);
+    default: assertNever(obj.kind);
   }
 }
 
-console.log(specific(new A()));
-console.log(specific(new B()));
-console.log(specific(new C()), 'should be error');
+//console.log(specific(new A()));
+//console.log(specific(new B()));
+//console.log(specific(new C()), 'should be error');
+
+function getProperty<T, K extends keyof T>(obj: T, name: K): T[ K ] {
+  return obj[ name ];
+}
+
+console.log(getProperty(new A(), 'kind'));

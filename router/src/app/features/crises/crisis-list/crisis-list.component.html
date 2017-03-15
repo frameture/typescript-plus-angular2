@@ -1,0 +1,4 @@
+<ul class="crises">
+  <li class="btn btn-info" *ngFor="let crisis of crises" (click)="onSelect(crisis)" [class.active]="isSelected(crisis)">{{crisis.name}}</li>
+</ul>
+<router-outlet></router-outlet>

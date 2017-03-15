@@ -1,0 +1,9 @@
+<form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
+  <h2>Contact Crisis Center</h2>
+  <label for="message">Message
+    <textarea name="text" #text class="form-control" id="message" rows="10"       cols="50" [(ngModel)]="message" placeholder="Your message here." required>
+    </textarea>
+  </label>
+  <button type="submit" [class.valid]="text.valid">Send</button>
+  <button type="button" (click)="onCancel(contactForm)">Cancel</button>
+</form>

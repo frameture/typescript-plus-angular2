@@ -1,0 +1,6 @@
+<div>
+  <input type="radio" name="colors" value="yellow" (click)="color='yellow'">Yellow
+  <input type="radio" name="colors" value="red" (click)="color='red'">Red
+  <input type="radio" name="colors" value="blue" (click)="color='blue'">Blue
+</div>
+<h1 [appHighlight]="color" defaultColor="violet">Highlight me</h1>

@@ -1,0 +1,17 @@
+.heroes {
+    margin: 1em 0;
+}
+
+.hero {
+    display: block;
+    width: 235px;
+}
+
+p {
+    display: inline;
+    margin: 0 1em;
+}
+
+.selected {
+    background: #ddd;
+}

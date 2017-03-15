@@ -1,0 +1,8 @@
+<p>
+  crisis-detail works!
+</p>
+
+<div class="crisis" *ngIf="crisis">
+  {{crisis | json}}
+</div>
+<button type="button" (click)="onBack()">Back</button>

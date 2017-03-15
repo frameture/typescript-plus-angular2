@@ -1,0 +1,7 @@
+<h1>
+  {{title}}
+  <button type="button" (click)="toggleFirst()">Toggle First</button>
+  <button type="button" (click)="incrementSecond()">Increment Second</button>
+</h1>
+<app-first *ngIf="showFirst"></app-first>
+<app-second [input]="secondInput"></app-second>

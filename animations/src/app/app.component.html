@@ -1,0 +1,8 @@
+<button [@buttonState]="isActive" (click)=toggleState()>Animates on click</button>
+<button [@buttonState]="isActive2" (click)=toggleState2()>Animates on click</button>
+<div *ngIf="isButtonIn">
+  <button (@flyInOut.start)="animationStarted($event)" [@flyInOut]="in" (click)="flyOut()">Flies in on enter and flies out on click</button>
+</div>
+<div *ngIf="isButton2In">
+  <button [@arise]="in" (click)="shrink()">Shrinks on click</button>
+</div>

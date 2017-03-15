@@ -1,0 +1,6 @@
+<div class="heroes">
+  <div class="btn hero well" *ngFor="let hero of heroes | async; let i = index" (click)="onSelect(hero)" [class.selected]="isSelected(hero)">
+    <p class="badge">{{i + 1}}</p>
+    <p>{{hero.name}}</p>
+  </div>
+</div>

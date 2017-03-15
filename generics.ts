@@ -76,7 +76,6 @@ function copyCollectionToLengthyOne<T>
 copyCollectionToLengthyOne(numCollection, lengthyColl);
 console.log(lengthyColl);
 
-
 class Num {
   number: number;
 }
