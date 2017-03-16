@@ -1,10 +1,17 @@
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
+import {
+  ActivatedRouteSnapshot,
+  CanActivate,
+  CanActivateChild,
+  NavigationExtras,
+  Router,
+  RouterStateSnapshot
+} from '@angular/router';
 import { Injectable } from '@angular/core';
 
 import { AuthService } from './auth.service';
 
 @Injectable()
-export class AuthGuardService implements CanActivate {
+export class AuthGuardService implements CanActivate, CanActivateChild {
 
   constructor(
     private authService: AuthService,
@@ -16,11 +23,24 @@ export class AuthGuardService implements CanActivate {
     return this.checkLogin(url);
   }
 
+  canActivateChild
+    (childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+    console.log('canActivateChild', this.canActivate(childRoute, state));
+    return this.canActivate(childRoute, state);
+  }
+
   private checkLogin(url: string): boolean {
     if (this.authService.isLoggedIn) { return true; }
 
     this.authService.redirectUrl = url;
-    this.router.navigate([ '/login' ]);
+    const sessionId = '1234567890';
+    const navigationExtras: NavigationExtras = {
+      queryParams: { 'session_id': sessionId },
+      fragment: 'anchor'
+    };
+
+    this.router.navigate([ '/login' ], navigationExtras);
     return false;
   }
+
 }

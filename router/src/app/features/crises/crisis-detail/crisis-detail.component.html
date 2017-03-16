@@ -1,8 +1,12 @@
-<p>
-  crisis-detail works!
-</p>
-
-<div class="crisis" *ngIf="crisis">
-  {{crisis | json}}
+ crisis: {{crisis | json}} originalCrisis: {{originalCrisis | json}}
+<div class="details" *ngIf="crisis">
+  <h3>Crisis Details</h3>
+  <label for="name">Name
+    <input type="text" name="name" [(ngModel)]="crisis.name">
+  </label>
+  <label for="location">Location
+    <input type="text" name="location" [(ngModel)]="crisis.location">
+  </label>
+  <button (click)="onSave()" type="button">Save</button>
+  <button (click)="onCancel()" type="button">Cancel</button>
 </div>
-<button type="button" (click)="onBack()">Back</button>

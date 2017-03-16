@@ -2,3 +2,7 @@
 <a routerLink="./crises">Manage Crises</a>
 <a routerLink="./heroes">Manage Heroes</a>
 <router-outlet></router-outlet>
+
+<p>Session ID: {{ sessionId | async }}</p>
+<a id="anchor">fragment</a>
+<p>Token: {{ token | async }}</p>

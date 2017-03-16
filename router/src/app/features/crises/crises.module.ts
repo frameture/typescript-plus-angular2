@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 
+import { CrisisDetailResolver } from './crisis-detail-resolver.service';
 import { CrisisService } from './crisis.service';
 import { CrisisListComponent } from './crisis-list/crisis-list.component';
 import { CrisesRoutingModule } from './crises-routing.module';
@@ -19,6 +20,9 @@ import { CrisisDetailComponent } from './crisis-detail/crisis-detail.component';
     CrisesRoutingModule,
     SharedModule
   ],
-  providers: [ CrisisService ]
+  providers: [
+    CrisisDetailResolver,
+    CrisisService
+  ]
 })
 export class CrisesModule { }

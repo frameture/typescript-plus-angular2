@@ -19,4 +19,9 @@ export class CrisisService {
     return Promise.resolve(this.crises);
   }
 
+  saveCrisis(crisis: Crisis): Promise<void> {
+    this.crises[ crisis.id ] = crisis;
+    return Promise.resolve();
+  }
+
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 
 import { AuthService } from '../../core/auth.service';
 
@@ -30,7 +30,11 @@ export class LoginComponent {
   private redirect(): void {
     const redirectUrl = this.authService.redirectUrl;
     if (redirectUrl) {
-      this.router.navigateByUrl(this.authService.redirectUrl);
+      const navigationExtras: NavigationExtras = {
+        preserveQueryParams: true,
+        preserveFragment: true
+      };
+      this.router.navigate([ this.authService.redirectUrl ], navigationExtras);
       this.authService.redirectUrl = undefined;
     }
   }

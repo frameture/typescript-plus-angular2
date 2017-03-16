@@ -12,8 +12,16 @@ const routes: Routes = [
     canActivate: [ AuthGuardService ],
     component: AdminDashboardComponent,
     children: [
-      { path: 'crises', component: ManageCrisesComponent },
-      { path: 'heroes', component: ManageHeroesComponent }
+      {
+        path: 'crises',
+        //  canActivateChild: [ AuthGuardService ], they are loaded eagerly with the parent - so, there is only one authChecking
+        component: ManageCrisesComponent
+      },
+      {
+        path: 'heroes',
+        //  canActivateChild: [ AuthGuardService ],
+        component: ManageHeroesComponent
+      }
     ]
   }
 ];
