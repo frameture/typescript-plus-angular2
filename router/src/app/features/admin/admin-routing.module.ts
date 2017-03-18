@@ -2,14 +2,14 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
-import { AuthGuardService } from '../../core/auth-guard.service';
+import { AuthGuard } from 'app/core/auth-guard.service';
 import { ManageCrisesComponent } from './manage-crises/manage-crises.component';
 import { ManageHeroesComponent } from './manage-heroes/manage-heroes.component';
 
 const routes: Routes = [
   {
-    path: 'admin-dashboard',
-    canActivate: [ AuthGuardService ],
+    path: '', // will serve as a lazily loaded parent
+    canActivate: [ AuthGuard ],
     component: AdminDashboardComponent,
     children: [
       {

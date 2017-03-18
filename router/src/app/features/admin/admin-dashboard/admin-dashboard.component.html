@@ -3,6 +3,9 @@
 <a routerLink="./heroes">Manage Heroes</a>
 <router-outlet></router-outlet>
 
+<h3>Preloaded Modules</h3>
+<p *ngFor="let module of modules">{{module}}</p>
+
 <p>Session ID: {{ sessionId | async }}</p>
 <a id="anchor">fragment</a>
 <p>Token: {{ token | async }}</p>

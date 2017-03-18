@@ -1,16 +1,15 @@
 
 import { NgModule } from '@angular/core';
 
-import { AdminModule } from '../features/admin/admin.module';
-import { AuthGuardService } from './auth-guard.service';
+import { AuthGuard } from './auth-guard.service';
 import { AuthService } from './auth.service';
-import { ComposeMessageComponent } from './compose-message/compose-message.component';
 import { CanDeactivateGuard } from './can-deactivate-guard.service';
-import { CrisesModule } from '../features/crises/crises.module';
+import { ComposeMessageComponent } from './compose-message/compose-message.component';
 import { DialogService } from './dialog.service';
 import { HeroesModule } from '../features/heroes/heroes.module';
 import { LoginModule } from '../features/login/login.module';
 import { NotFoundComponent } from './not-found.component';
+import { SelectivePreloadingStrategy } from './selective-preloading-strategy.service';
 import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
@@ -20,16 +19,15 @@ import { SharedModule } from '../shared/shared.module';
     NotFoundComponent
   ],
   imports: [
-    AdminModule,
-    CrisesModule,
     HeroesModule,
     LoginModule,
     SharedModule
   ], providers: [
-    AuthGuardService,
+    AuthGuard,
     AuthService,
     CanDeactivateGuard,
-    DialogService
+    DialogService,
+    SelectivePreloadingStrategy
   ]
 })
 export class CoreModule { }
